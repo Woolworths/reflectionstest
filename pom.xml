@@ -6,6 +6,12 @@
     <artifactId>untitled</artifactId>
     <version>0.9</version>
 
+    <properties>
+        <java.source>1.8</java.source>
+        <java.target>1.8</java.target>
+        <exec.mainClass>main.java.Main</exec.mainClass>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.reflections</groupId>
@@ -20,8 +26,17 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.source}</source>
+                    <target>${java.target}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <mainClass>main.java.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
