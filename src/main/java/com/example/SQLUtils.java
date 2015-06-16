@@ -11,7 +11,6 @@ public class SQLUtils {
                 DBDriver tmp = e.newInstance();
 
                 if(tmp.getPrefix().equalsIgnoreCase(prefix)) {
-                    System.out.println(tmp.getPrefix());
                     return tmp;
                 }
             } catch (Exception ex) {
