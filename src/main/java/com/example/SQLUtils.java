@@ -1,16 +1,17 @@
-package main.java;
+package com.example;
 
 import org.reflections.Reflections;
 
 public class SQLUtils {
     public static DBDriver getDriver(String prefix) {
-        Reflections reflections = new Reflections("src");
+        Reflections reflections = new Reflections("com.example");
 
         for(Class<? extends DBDriver> e : reflections.getSubTypesOf(DBDriver.class)) {
             try {
                 DBDriver tmp = e.newInstance();
 
                 if(tmp.getPrefix().equalsIgnoreCase(prefix)) {
+                    System.out.println(tmp.getPrefix());
                     return tmp;
                 }
             } catch (Exception ex) {
